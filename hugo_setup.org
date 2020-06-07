@@ -1,0 +1,4 @@
+#+HUGO_BASE_DIR: ~/Desktop/blog/bloggo/
+#+HUGO_SECTION: posts/
+#+OPTIONS: H:2
+
