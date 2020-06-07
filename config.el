@@ -95,8 +95,6 @@
   :commands (org-roam-insert org-roam-find-file org-roam-switch-to-buffer org-roam)
   :hook
   (after-init . org-roam-mode)
-  :custom-face
-  (org-roam-link ((t (:inherit org-link :foreground "#005200"))))
   :init
   (map! :leader
         :prefix "n"
@@ -258,15 +256,6 @@
                  ("misc" . "${author} (${year}). *${title}*. Retrieved from [${howpublished}](${howpublished}). ${note}.")
                  (nil . "${author}, *${title}* (${year})."))))
 
-(use-package! mathpix.el
-  :commands (mathpix-screenshot)
-  :init
-  (map! "C-x m" #'mathpix-screenshot)
-  :config
-  (setq mathpix-screenshot-method "maim -s %s"
-        mathpix-app-id (password-store-get "mathpix/app-id")
-        mathpix-app-key (password-store-get "mathpix/app-key")))
-
 (defun insert-date ()
   "Insert a timestamp according to locale's date and time format."
   (interactive)
@@ -345,3 +334,6 @@
 
 (require 'yasnippet)
 (yas-global-mode 1)
+
+(after! org-noter
+  org-noter-doc-split-fraction '(0.57 0.43))
